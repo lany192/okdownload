@@ -1,19 +1,17 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    namespace = "com.liulishuo.okdownload.benchmark"
+    compileSdk rootProject.ext.compileSdkVersion
 
     compileOptions {
         sourceCompatibility rootProject.ext.sourceCompatibilityVersion
-        targetCompatibility rootProject.ext.targetCompatibilityVersion
+        targetCompatibility JavaVersion.VERSION_11
     }
 
-    lintOptions {
-        lintConfig file('lint.xml')
-        textOutput 'stdout'
-        textReport true
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
     }
 
     defaultConfig {
@@ -23,7 +21,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
         vectorDrawables.useSupportLibrary = true
     }
@@ -33,14 +31,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    lint {
+        lintConfig file('lint.xml')
+        textOutput file('stdout')
+        textReport true
+    }
 }
 
 dependencies {
-    implementation dep.kotlin
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.9.21'
 
-    implementation dep.supportV7
-    implementation dep.supportDesign
-    implementation dep.supportConstraintLayout
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    testImplementation dep.junit
+    testImplementation "junit:junit:4.13.2"
 }

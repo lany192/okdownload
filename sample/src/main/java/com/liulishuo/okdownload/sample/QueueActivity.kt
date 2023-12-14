@@ -17,10 +17,10 @@
 package com.liulishuo.okdownload.sample
 
 import android.os.Bundle
-import android.support.v7.widget.AppCompatRadioButton
-import android.support.v7.widget.CardView
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.widget.AppCompatRadioButton
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
 
@@ -101,7 +101,8 @@ class QueueActivity : BaseSampleActivity() {
     }
 
     private fun initRecyclerView(recyclerView: RecyclerView) {
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager =
+            LinearLayoutManager(this)
         controller?.let {
             val adapter = QueueRecyclerAdapter(it)
             this.adapter = adapter

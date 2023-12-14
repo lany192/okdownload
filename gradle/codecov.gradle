@@ -56,7 +56,7 @@ android {
 }
 
 project.tasks.whenTaskAdded { task ->
-    if (task.name == "okcheckDebug" || task.name == 'okcheck') {
+    if (task.name == "okcheckDebug" || task.name == 'okcheck' || task.name == 'test') {
         task.dependsOn('jacocoTestReport')
     }
 }

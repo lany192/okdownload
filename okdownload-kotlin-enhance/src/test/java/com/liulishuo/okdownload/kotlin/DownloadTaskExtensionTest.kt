@@ -47,6 +47,7 @@ import org.robolectric.RobolectricTestRunner
 import java.lang.Exception
 import java.lang.IllegalStateException
 
+
 @RunWith(RobolectricTestRunner::class)
 class DownloadTaskExtensionTest {
 
@@ -182,16 +183,16 @@ class DownloadTaskExtensionTest {
         spiedTask.listener.taskStart(mockTask)
         spiedTask.listener.downloadFromBreakpoint(mockTask, breakInfo)
         spiedTask.listener.fetchProgress(mockTask, 0, 200)
-        assert(spChannel.poll()?.currentOffset == 200L)
+        assert(spChannel.tryReceive().getOrNull()?.currentOffset == 200L)
         spiedTask.listener.taskEnd(mockTask, mockk(), mockk())
         // don't offer any progress after channel is closed
         spiedTask.listener.fetchProgress(mockTask, 0, 300)
-        assert(spChannel.poll() == null)
+        assert(spChannel.tryReceive().getOrNull() == null)
     }
 
     @Test
     fun `DownloadTask await success`() {
-        val spiedBlock: () -> Unit = spyk({})
+        val spiedBlock: () -> Unit = spyk<() -> Unit>()
         every { mockTask.enqueue(any()) } answers {
             val listener = it.invocation.args[0] as DownloadListener
             listener.taskEnd(mockTask, EndCause.COMPLETED, null)

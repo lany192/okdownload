@@ -200,6 +200,7 @@ public class UtilTest {
         final StatFs statFs = mock(StatFs.class);
         when(statFs.getAvailableBlocks()).thenReturn(1);
         when(statFs.getBlockSize()).thenReturn(2);
+        when(statFs.getAvailableBytes()).thenReturn(2L);
         assertThat(Util.getFreeSpaceBytes(statFs)).isEqualTo(2L);
     }
 

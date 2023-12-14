@@ -34,7 +34,7 @@ public class NamedRunnableTest {
     public void setup() {
         String name = "name";
         runnable = spy(new NamedRunnable(name) {
-            @Override protected void execute() {
+            @Override protected void execute() throws InterruptedException {
             }
 
             @Override protected void interrupted(InterruptedException e) {

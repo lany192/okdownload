@@ -43,9 +43,11 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.nullable;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 public class DownloadOkHttp3ConnectionTest {
 
@@ -58,7 +60,7 @@ public class DownloadOkHttp3ConnectionTest {
 
     @Before
     public void setup() throws Exception {
-        initMocks(this);
+        openMocks(this).close();
 
         connection = new DownloadOkHttp3Connection(client, URL);
     }
@@ -118,7 +120,7 @@ public class DownloadOkHttp3ConnectionTest {
         final Call call = mock(Call.class);
         when(client.newCall(any(Request.class))).thenReturn(call);
 
-        final ResponseBody body = mock(ResponseBody.class);
+        final ResponseBody body = spy(ResponseBody.class);
         final Response response = createResponseBuilder()
                 .body(body).build();
         when(call.execute()).thenReturn(response);

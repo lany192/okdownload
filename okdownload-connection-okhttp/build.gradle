@@ -1,17 +1,15 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    namespace = "com.liulishuo.okdownload.connection.okhttp"
+    compileSdk rootProject.ext.compileSdkVersion
 
     compileOptions {
         sourceCompatibility rootProject.ext.sourceCompatibilityVersion
-        targetCompatibility rootProject.ext.targetCompatibilityVersion
+        targetCompatibility JavaVersion.VERSION_11
     }
 
-    dexOptions {
-        preDexLibraries = !rootProject.ext.isCi
-    }
+    
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -21,15 +19,15 @@ android {
 }
 
 dependencies {
-    testImplementation dep.junit
-    testImplementation dep.mockito
-    testImplementation dep.assertj
+    testImplementation "junit:junit:4.13.2"
+    testImplementation 'org.mockito:mockito-core:5.8.0'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
     testImplementation project(':okdownload')
 
     compileOnly project(':okdownload')
 
-    implementation dep.okhttp3
-    implementation dep.supportAnnotations
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'androidx.annotation:annotation:1.7.0'
 }
 
 apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

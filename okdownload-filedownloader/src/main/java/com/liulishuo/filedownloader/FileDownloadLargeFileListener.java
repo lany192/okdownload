@@ -31,6 +31,7 @@ public abstract class FileDownloadLargeFileListener extends FileDownloadListener
      * @see #FileDownloadLargeFileListener()
      * @deprecated not handle priority any more
      */
+    @Deprecated
     public FileDownloadLargeFileListener(int priority) {
         //noinspection deprecation
         super(priority);
@@ -52,6 +53,7 @@ public abstract class FileDownloadLargeFileListener extends FileDownloadListener
      * @param totalBytes Total bytes stored in the db
      * @deprecated replaced with {@link #pending(BaseDownloadTask, long, long)}
      */
+    @Deprecated
     @Override
     protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {
     }
@@ -79,6 +81,7 @@ public abstract class FileDownloadLargeFileListener extends FileDownloadListener
      * @param totalBytes Total size of the download in bytes
      * @deprecated replaced with {@link #connected(BaseDownloadTask, String, boolean, long, long)}
      */
+    @Deprecated
     @Override
     protected void connected(BaseDownloadTask task, String etag, boolean isContinue, int soFarBytes,
                              int totalBytes) {
@@ -98,6 +101,7 @@ public abstract class FileDownloadLargeFileListener extends FileDownloadListener
      * @param totalBytes Total size of the download in bytes
      * @deprecated replaced with {@link #progress(BaseDownloadTask, long, long)}
      */
+    @Deprecated
     @Override
     protected void progress(BaseDownloadTask task, int soFarBytes, int totalBytes) {
     }
@@ -122,6 +126,7 @@ public abstract class FileDownloadLargeFileListener extends FileDownloadListener
      * @param soFarBytes    Number of bytes download so far
      * @deprecated replaced with {@link #retry(BaseDownloadTask, Throwable, int, long)}
      */
+    @Deprecated
     @SuppressWarnings("EmptyMethod")
     @Override
     protected void retry(BaseDownloadTask task, Throwable ex, int retryingTimes, int soFarBytes) {
@@ -143,6 +148,7 @@ public abstract class FileDownloadLargeFileListener extends FileDownloadListener
      * @param totalBytes Total size of the download in bytes
      * @deprecated replaced with {@link #paused(BaseDownloadTask, long, long)}
      */
+    @Deprecated
     @Override
     protected void paused(BaseDownloadTask task, int soFarBytes, int totalBytes) {
     }

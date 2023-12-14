@@ -195,7 +195,6 @@ public class BreakpointSQLiteHelperTest {
 
     @Test
     public void removeInfo() {
-        helper = spy(helper);
         helper.removeInfo(insertedInfo2.id);
         final SparseArray<BreakpointInfo> infoSparseArray = helper.loadToCache();
         assertThat(infoSparseArray.size()).isEqualTo(1);

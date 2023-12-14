@@ -17,7 +17,7 @@
 package com.liulishuo.filedownloader;
 
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.liulishuo.filedownloader.model.FileDownloadStatus;
 
@@ -137,6 +137,7 @@ public interface BaseDownloadTask {
     /**
      * @deprecated Replace with {@link #addFinishListener(FinishListener)}
      */
+    @Deprecated
     BaseDownloadTask setFinishListener(FinishListener finishListener);
 
     /**
@@ -309,6 +310,7 @@ public interface BaseDownloadTask {
      * @return {@code true} if cancel this task successfully.
      * @deprecated replace with {@link #pause()}
      */
+    @Deprecated
     boolean cancel();
     // ------------------- get -----------------------
 
@@ -324,6 +326,7 @@ public interface BaseDownloadTask {
      * @return The downloading identify of this task.
      * @deprecated Used {@link #getId()} instead.
      */
+    @Deprecated
     int getDownloadId();
 
     /**
@@ -385,6 +388,7 @@ public interface BaseDownloadTask {
      * @return The has already downloaded bytes so far.
      * @deprecated replace with {@link #getSmallFileSoFarBytes()}.
      */
+    @Deprecated
     int getSoFarBytes();
 
     /**
@@ -409,6 +413,7 @@ public interface BaseDownloadTask {
      * it has already have in the database.
      * @deprecated replace with {@link #getSmallFileTotalBytes()}}
      */
+    @Deprecated
     int getTotalBytes();
 
     /**
@@ -456,6 +461,7 @@ public interface BaseDownloadTask {
     /**
      * @deprecated Replaced with {@link #getErrorCause()}
      */
+    @Deprecated
     Throwable getEx();
 
     /**
@@ -491,6 +497,7 @@ public interface BaseDownloadTask {
     /**
      * @deprecated Use {@link #isResuming()} instead.
      */
+    @Deprecated
     boolean isContinue();
 
     /**

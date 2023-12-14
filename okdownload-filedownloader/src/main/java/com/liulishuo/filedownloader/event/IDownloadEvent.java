@@ -35,6 +35,7 @@ public abstract class IDownloadEvent {
      * @see #IDownloadEvent(String)
      * @deprecated do not handle ORDER any more.
      */
+    @Deprecated
     public IDownloadEvent(final String id, boolean order) {
         this.id = id;
     }

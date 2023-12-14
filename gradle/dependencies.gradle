@@ -1,10 +1,10 @@
 ext {
-    compileSdkVersion = 28
-    buildToolsVersion = '28.0.3'
+    compileSdkVersion = 34
+
     minSdkVersion = 14
-    targetSdkVersion = 28
-    sourceCompatibilityVersion = JavaVersion.VERSION_1_8
-    targetCompatibilityVersion = JavaVersion.VERSION_1_8
+    targetSdkVersion = 34
+    sourceCompatibilityVersion = JavaVersion.VERSION_11
+    targetCompatibilityVersion = JavaVersion.VERSION_11
     kotlin_version = '1.3.50'
     anko_version = '0.10.1'
     coroutines_version = '1.3.1'
@@ -21,9 +21,9 @@ ext {
             mockito                     : 'org.mockito:mockito-core:2.10.0',
             mockk                       : 'io.mockk:mockk:1.9.3',
 
-            kotlin                      : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
-            kotlinxCoroutines           : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version",
-            kotlinxCoroutineAndroid     : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version",
+            kotlin                      : "org.jetbrains.kotlin:kotlin-stdlib:1.9.10",
+            kotlinxCoroutines           : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4",
+            kotlinxCoroutineAndroid     : "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4",
 
             // anko commons
             ankoSdk                     : "org.jetbrains.anko:anko-sdk25:$anko_version",
@@ -47,9 +47,9 @@ ext {
             supportConstraintLayout     : "com.android.support.constraint:constraint-layout:1.0.2",
 
             // for okdownload-connection-okhttp
-            okhttp3                     : "com.squareup.okhttp3:okhttp:3.9.1",
+            okhttp3                     : "com.squareup.okhttp3:okhttp:3.10.0",
 
-            findbugsAnnotations         : "com.google.code.findbugs:annotations:3.0.1",
+            "com.google.code.findbugs:annotations:3.0.1"         : "com.google.code.findbugs:annotations:3.0.1",
             findbugsjsr305              : "com.google.code.findbugs:jsr305:3.0.1"
 
     ]

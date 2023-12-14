@@ -54,6 +54,7 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 import static org.robolectric.annotation.Config.NONE;
 
 @RunWith(RobolectricTestRunner.class)
@@ -71,6 +72,8 @@ public class DownloadContextTest {
 
     private String filePath = "./exist-file";
 
+    private AutoCloseable mock;
+
     @BeforeClass
     public static void setupClass() {
         Util.setLogger(mock(Util.Logger.class));
@@ -78,7 +81,7 @@ public class DownloadContextTest {
 
     @Before
     public void setup() {
-        initMocks(this);
+        mock = openMocks(this);
 
         tasks = new DownloadTask[3];
         tasks[0] = mock(DownloadTask.class);
@@ -91,11 +94,13 @@ public class DownloadContextTest {
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
         final File file = new File(filePath);
         if (file.exists()) {
             file.delete();
         }
+
+        mock.close();
     }
 
     @Test

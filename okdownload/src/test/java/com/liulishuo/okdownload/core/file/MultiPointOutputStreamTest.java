@@ -660,6 +660,7 @@ public class MultiPointOutputStreamTest {
         final StatFs statFs = mock(StatFs.class);
         when(statFs.getAvailableBlocks()).thenReturn(1);
         when(statFs.getBlockSize()).thenReturn(2);
+        when(statFs.getAvailableBytes()).thenReturn(2L);
 
         thrown.expectMessage("There is Free space less than Require space: 2 < 3");
         thrown.expect(PreAllocateException.class);
@@ -671,6 +672,7 @@ public class MultiPointOutputStreamTest {
         final StatFs statFs = mock(StatFs.class);
         when(statFs.getAvailableBlocks()).thenReturn(1);
         when(statFs.getBlockSize()).thenReturn(2);
+        when(statFs.getAvailableBytes()).thenReturn(2L);
 
         multiPointOutputStream.inspectFreeSpace(statFs, 2);
     }

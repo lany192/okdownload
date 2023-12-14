@@ -3,16 +3,16 @@ apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    namespace = "com.liulishuo.okdownload.kotlin"
+    compileSdk rootProject.ext.compileSdkVersion
 
     compileOptions {
-        sourceCompatibility rootProject.ext.sourceCompatibilityVersion
-        targetCompatibility rootProject.ext.targetCompatibilityVersion
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
-    dexOptions {
-        preDexLibraries = !rootProject.ext.isCi
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     defaultConfig {
@@ -25,20 +25,20 @@ android {
 }
 
 dependencies {
-    testImplementation dep.junit
-    testImplementation dep.mockk
-    testImplementation dep.assertj
+    testImplementation "junit:junit:4.13.2"
+    testImplementation 'io.mockk:mockk:1.13.8'
+    testImplementation 'org.mockito:mockito-core:5.8.0'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
     testImplementation project(':okdownload')
-    testImplementation dep.robolectric
+    testImplementation 'org.robolectric:robolectric:4.11.1'
 
-    implementation dep.kotlin
-    implementation dep.kotlinxCoroutines
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.9.21'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
     compileOnly project(':okdownload')
 }
 
-dokka {
-    outputFormat = 'html'
-    outputDirectory = "$buildDir/docs/javadoc"
+dokkaHtml {
+    outputDirectory = file("$buildDir/docs/javadoc")
 }
 
 tasks.withType(Javadoc).all {
