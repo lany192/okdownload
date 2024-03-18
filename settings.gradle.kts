@@ -20,14 +20,13 @@ dependencyResolutionManagement {
 }
 
 
-rootProject.name = "okdownload-root"
+rootProject.name = "okdownload-demo"
 
 include(":okdownload")
 include(":process")
 include(":okhttp")
 include(":sqlite")
 include(":kotlin")
-include(":benchmark")
 include(":filedownloader")
 include("sample")
 
