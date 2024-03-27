@@ -21,17 +21,10 @@ dependencyResolutionManagement {
 
 
 rootProject.name = "okdownload-demo"
-
-include(":okdownload")
-include(":process")
-include(":okhttp")
-include(":sqlite")
-include(":kotlin")
-include(":filedownloader")
 include("sample")
-
-project(":process").projectDir = File(settingsDir, "okdownload-process")
-project(":okhttp").projectDir = File (settingsDir, "okdownload-connection-okhttp")
-project(":sqlite").projectDir = File (settingsDir, "okdownload-breakpoint-sqlite")
-project(":kotlin").projectDir = File (settingsDir, "okdownload-kotlin-enhance")
-project(":filedownloader").projectDir = File (settingsDir, "okdownload-filedownloader")
+include(":okdownload")
+include(":okdownload-process")
+include(":okdownload-connection-okhttp")
+include(":okdownload-breakpoint-sqlite")
+include(":okdownload-kotlin-enhance")
+include(":okdownload-filedownloader")
