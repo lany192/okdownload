@@ -70,8 +70,8 @@ dependencies {
     // RecyclerView-v7
    // implementation "org.jetbrains.anko:anko-recyclerview-v7:0.10.1"
    // implementation "org.jetbrains.anko:anko-recyclerview-v7-coroutines:0.10.1"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation "junit:junit:4.13.2"
     implementation project(':okdownload')
